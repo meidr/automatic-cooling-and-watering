@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+    <script src="js/app.js"></script>
+    <script src="js/Chart.js"></script>
+    <script src="js/Chart.bundle.min.js"></script>
+    <script src="js/Chart.bundle.js"></script>
+    <script src="js/Chart.min.js"></script>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+
+
+
+
+    <!--------------------------BOOTSTRAP------------------------------>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #f5f5f5;
+        }
+
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+
+        }
+
+        .form-signin .checkbox {
+            font-weight: 400;
+        }
+
+        .form-signin .form-control {
+            position: relative;
+            box-sizing: border-box;
+            height: auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+    </style>
+
+
+    <title>BBPP Sensor</title>
+</head>
+
+<body class="text-center">
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
+
+    <!--Halaman awal-->
+    <div data-role="page" id="home" style="background-color: seagreen">
+        <div>
+            <form class="form-signin" style="margin-top:100px">
+                <img class="mb-4" src="img/Kementerian-Pertanian-Logo.png" alt="" width="100" height="100">
+                <h1 class="h3 mb-3 font-weight-normal" style="color:#f5f5f5 ">Automatic Cooling and Watering System</h1>
+                <a href="#menuhome"><button id="btn-home" class="btn btn-lg btn-primary btn-block" type="submit"
+                        style="color:forestgreen"><b>Get Started</b> </button></a>
+                <p class="mt-5 mb-3 text-muted">&copy; MAHASISWA PKL 2019</p>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+    <!--Halaman awalMenu-->
+    <div data-role="page" id="menuhome">
+        <div data-role="header" style="background-color: seagreen; color: white">
+            <h1>MENU</h1>
+            <a id="goBack" href="#home" class="ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-notext"></a>
+
+        </div>
+        <!--<div class="inner" id="satu">#349450
+            <img src="img/daun.jpg"
+                style="max-width:100%; max-height:100%; display: block; margin-right: auto;margin-left: auto;">
+            <button
+                style="margin-top: -170px; width: 175px; height: 100px; margin-right: auto;margin-left: auto;font-size: 20px;"><a
+                    href="#menu1" style="color:forestgreen">Menu Rincian</a></button>
+
+        </div>
+
+        <div class="inner" style="margin-top: 20%" id="dua">
+            <img src="img/daun.jpg"
+                style="max-width:100%; max-height:100%; display: block; margin-right: auto;margin-left: auto;">
+            <button id="btn-setting"
+                style="margin-top: -170px; width: 175px; height: 100px; margin-right: auto;margin-left: auto;font-size: 20px;"><a
+                    href="#setOtom" style="color:forestgreen">Setting<br>Otomatis</a></button>
+
+        </div>
+
+        <div class="inner" style="margin-top: 20%" id="dua">
+            <img src="img/daun.jpg"
+                style="max-width:100%; max-height:100%; display: block; margin-right: auto;margin-left: auto;">
+            <button id="btn-grafik"
+                style="margin-top: -170px; width: 175px; height: 100px; margin-right: auto;margin-left: auto;font-size: 20px;"><a
+                    href="#grafik" style="color:forestgreen">Lihat<br>Grafik</a></button>
+
+        </div>-->
+
+        <div class="container" style="margin-top: 10%">
+
+
+            <div class="row">
+                <div class="col-sm" style="border-radius: 20px 20px 20px 20px; background-color: silver;">
+                    <div style="margin-left: -20px">
+                        <img src="img/info.png"
+                            style="max-width:5%; max-height:5%; display: inline-block; margin-right: 10px;margin-left: auto; margin-top: 20px; margin-bottom:20px">
+                        <b id="infoTGL" style="text-align:center;"></b>
+                        <!--nilai tanggal-->
+                        <p id="informasi" style="margin-top: -20px; text-align:center"></p>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row" style="margin: 20px 20px 20px 20px">
+                <div class="col-sm" style="border-radius: 20px 20px 20px 20px; background-color: seagreen;"><br>
+                    <img src="img/data1.png"
+                        style="max-width:100%; max-height:100%; display: inline-block; margin-right: auto;margin-left: auto;">
+                    <a href="#menu1"><button class="btn btn-lg btn-primary btn-block" type="submit"
+                            style="color:forestgreen"><b>Jenis Rincian</b> </button></a>
+                </div>
+                <div class="col-sm"
+                    style="border-radius: 20px 20px 20px 20px; background-color: seagreen;margin-top: 20px"><br>
+                    <img src="img/settings (1).png"
+                        style="max-width:100%; max-height:100%; display: inline-block; margin-right: auto;margin-left: auto;">
+                    <a href="#setOtom"><button id="btn-setting" class="btn btn-lg btn-primary btn-block" type="submit"
+                            style="color:forestgreen"><b>Setting Otomatis</b> </button></a>
+                </div>
+                <div class="col-sm"
+                    style="border-radius: 20px 20px 20px 20px; background-color: seagreen; margin-top: 20px"><br>
+                    <img src="img/statistics (1).png"
+                        style="max-width:100%; max-height:100%; display: inline-block; margin-right: auto;margin-left: auto;">
+                    <a href="#grafik"><button id="btn-grafik" class="btn btn-lg btn-primary btn-block" type="submit"
+                            style="color:forestgreen"><b>Lihat Grafik</b> </button></a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!--Halaman Menu Rincian-->
+    <div data-role="page" id="menu1">
+        <div data-role="header" style="background-color: seagreen; color: white">
+            <h1 style="font-size: large; ">MENU RINCIAN</h1>
+            <a href="#menuhome" class="ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-notext"></a>
+
+        </div>
+
+        <div class="inner">
+            <div class="row" style="margin: 20px 20px 20px 20px">
+                <div class="col-sm" style="border-radius: 20px 20px 20px 20px; background-color: seagreen;"><br><br>
+                    <img src="img/thermometer.png"
+                        style="max-width:100%; max-height:100%; display: inline-block; margin-right: auto;margin-left: auto;">
+                    <a href="#monSuhu"><button id="btn-Rsuhu" class="btn btn-lg btn-primary btn-block" type="submit"
+                            style="color:forestgreen"><b>Suhu</b> </button></a>
+                </div>
+                <div class="col-sm"
+                    style="border-radius: 20px 20px 20px 20px; background-color: seagreen;margin-top: 20px">
+                    <br><br>
+                    <img src="img/humidity.png"
+                        style="max-width:100%; max-height:100%; display: inline-block; margin-right: auto;margin-left: auto;">
+                    <a href="#monKelembaban"><button id="btn-Rkelembaban" class="btn btn-lg btn-primary btn-block"
+                            type="submit" style="color:forestgreen"><b>Kelembaban Udara</b> </button></a>
+                </div>
+                <div class="col-sm"
+                    style="border-radius: 20px 20px 20px 20px; background-color: seagreen; margin-top: 20px">
+                    <br><br>
+                    <img src="img/shovel.png"
+                        style="max-width:100%; max-height:100%; display: inline-block; margin-right: auto;margin-left: auto;">
+                    <a href="#monKelembabanT"><button id="btn-RkelembabanT" class="btn btn-lg btn-primary btn-block"
+                            type="submit" style="color:forestgreen"><b> Kelembaban Tanah</b> </button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--Halaman Monitoring Suhu-->
+<div data-role="page" id="monSuhu">
+    <div data-role="header" style="background-color: seagreen; color: white">
+        <h1>Data Suhu</h1>
+        <a id="back1" href="#menu1" class="ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-notext"></a>
+    </div>
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-bar ui-bar-a" style="height:40px; text-align: center">Suhu</div>
+            <!--<div class="ui-bar ui-bar-a" style="height:auto; text-align: center; ">
+                <ul id="list-suhu" data-role="listview">
+                </ul>
+            </div>-->
+
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-bar ui-bar-a" style="height:40px; text-align: center">Waktu</div>
+            <!--<div class="ui-bar ui-bar-a" style="height:auto; text-align: center ;">
+                <ul id="list-waktu" data-role="listview">
+                </ul>
+            </div>-->
+
+        </div>
+    </div>
+    <div class="ui-grid-a" id="valueSuhu">
+        <div class="ui-block-a">
+            <div class="ui-bar ui-bar-a" style="height:auto; text-align: center; ">
+                <ul id="list-suhu" data-role="listview">
+                </ul>
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-bar ui-bar-a" style="height:auto; text-align: center ;">
+                <ul id="list-waktu" data-role="listview">
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</div>
+</div>
+</div>
+
+
+<!--Halaman Monitoring Kelembaban-->
+<div data-role="page" id="monKelembaban">
+    <div data-role="header" style="background-color: seagreen; color: white">
+        <h1>Data Kelembaban</h1>
+        <a id="back2" href="#menu1" class="ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-notext"></a>
+
+    </div>
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-bar ui-bar-a" style="height:40px; text-align: center">Kelembaban</div>
+           
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-bar ui-bar-a" style="height:40px; text-align: center">Waktu</div>
+            
+        </div>
+    </div>
+
+    <div class="ui-grid-a" id="valueKelembaban">
+        <div class="ui-block-a">
+            <div class="ui-bar ui-bar-a" style="height:auto; text-align: center">
+                <ul id="list-kelembaban" data-role="listview">
+                </ul>
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-bar ui-bar-a" style="height:auto; text-align: center">
+                <ul id="list-waktu2" data-role="listview">
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<!--Halaman Monitoring Kelembaban Tanah-->
+<div data-role="page" id="monKelembabanT">
+    <div data-role="header" style="background-color: seagreen; color: white">
+        <h1>Data Kelembaban<br>Tanah</h1>
+        <a id="back3" href="#menu1" class="ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-notext"></a>
+    </div>
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div class="ui-bar ui-bar-a" style="height:40px; text-align: center">Kelembaban Tanah</div>
+            
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-bar ui-bar-a" style="height:40px; text-align: center">Waktu</div>
+            
+        </div>
+    </div>
+
+    <div class="ui-grid-a" id="valueKelembabanTanah">
+        <div class="ui-block-a">
+            <div class="ui-bar ui-bar-a" style="height:auto; text-align: center">
+                <ul id="list-kelembabanT" data-role="listview">
+                </ul>
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div class="ui-bar ui-bar-a" style="height:auto; text-align: center">
+                <ul id="list-waktu3" data-role="listview">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+
+
+    <!--Halaman Setting Otomatis-->
+    <div data-role="page" id="setOtom">
+        <div data-role="header" style="background-color: seagreen; color: white">
+            <h1>Setting <br> Otomatis<br></h1>
+            <a href="#menuhome" class="ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-notext"></a>
+        </div>
+        <div style="margin-top: 30px;text-align: center">
+            <form style="width: 250px;margin:30px 30px 0px 50px" method="POST" >
+                <!--setting suhu-->
+                <h5><b>Setting Suhu</b></h5>
+                <label for="text-7">Batas Atas Suhu( *C )</label>
+                <input type="text" data-clear-btn="true" name="nilaiAtasSuhu" id="nilaiAtasSuhu" 
+                    placeholder="Tulis disini.."><br>
+                <label for="text-7">Batas Bawah Suhu( *C )</label>
+                <input type="text" data-clear-btn="true" name="nilaiBawahSuhu" id="nilaiBawahSuhu" 
+                    placeholder="Tulis disini..">
+                <button 
+                    style="margin-top: 20%; width: auto; height: auto; margin-right: auto;margin-left: auto;font-size: 15px;"><a
+                    id="btn-submitUpdateSuhu"  href="#" style="color:forestgreen">Submit</a></button><br><br>
+
+                <div style="width: auto; height: 5px; background-color: forestgreen; margin-top: -15px;"></div><br>
+                <!--Setting kelembaban tanah-->
+                <h5> <b>Setting Kelembaban Tanah</b> </h5>
+                <label for="text-7">Batas Atas Kelembaban Tanah</label>
+                <input type="text" data-clear-btn="true" name="nilaiAtasKelembabanTanah" id="nilaiAtasKelembabanTanah" 
+                    placeholder="Tulis disini..">
+                <label for="text-7">Batas Bawah Kelembaban Tanah</label>
+                <input type="text" data-clear-btn="true" name="nilaiBawahKelembabanTanah" id="nilaiBawahKelembabanTanah" 
+                    placeholder="Tulis disini..">
+                <button 
+                    style="margin-top: 20%; width: auto; height: auto; margin-right: auto;margin-left: auto;font-size: 15px;"><a
+                    id="btn-submitUpdateKelembabanTanah" href="#" style="color:forestgreen">Submit</a></button>      
+            </form>
+        </div>
+    </div>
+
+
+    <div data-role="page" id="grafik">
+        <div data-role="header" style="background-color: seagreen; color: white">
+            <h1>Grafik</h1>
+            <a id="Balik" href="#menuhome"
+                class="ui-btn ui-shadow ui-corner-all ui-icon-carat-l ui-btn-icon-notext"></a>
+        </div>
+        <div style="width:75%; ">
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+
+
+    <script src="js/app.js" type="text/javascript"></script>
+    <script>
+        Application.initApplication();
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>
